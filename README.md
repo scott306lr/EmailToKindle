@@ -29,8 +29,11 @@ To get the program working, you will have to fill up the data inside _**info.jso
     "kindleAddress": "yourMail@kindle.com"
 }
 ```
-replace your email and password inside the brackets.\
-Enjoy!
+Replace your email and password inside the brackets.\
+\
+Inside _**books**_ folder, there is a sample document *BookToBeSent.txt* which should better be deleted before executing.\
+\
+That's all, enjoy!
 
 
 
