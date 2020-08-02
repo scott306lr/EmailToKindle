@@ -3,7 +3,7 @@ Directly sends an email from Gmail to Kindle.
 
 ### Features
 
-* Sends mails with an attachment of books inside the *books* folder.
+* Sends mails with an attachment of books inside the _**books**_ folder.
 * Remembers the names of the book sent in the past, books with the same name won't be sent again. 
 * For users who doesn't have python, I've added .exe version.
 
@@ -11,7 +11,7 @@ Directly sends an email from Gmail to Kindle.
 
 ### Requirements
 
-You'll have to [enable "less secure apps access"](https://myaccount.google.com/lesssecureapps) in order for this app to work./
+You'll have to enable [gmail's "less secure apps access"](https://myaccount.google.com/lesssecureapps) in order for this app to work.\
 I will find away to avoid this steo in the future.
 
 ### Usage
