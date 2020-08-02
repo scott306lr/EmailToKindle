@@ -1,0 +1,1 @@
+This is just an sample file which should be deleted before executing send.py or send.exe
