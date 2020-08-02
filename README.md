@@ -31,7 +31,7 @@ To get the program working, you will have to fill up the data inside _**info.jso
 ```
 Replace your email and password inside the brackets.\
 \
-Inside _**books**_ folder, there is a sample document *BookToBeSent.txt* which should better be deleted before executing.\
+Inside _**books**_ folder, there is a sample document *"BookToBeSent.txt"* which should better be deleted before executing.\
 \
 That's all, enjoy!
 
