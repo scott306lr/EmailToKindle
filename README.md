@@ -10,12 +10,12 @@ Directly sends an email from Gmail to Kindle
 
 ### Usage
 
-All you have to do is to drag the books(or documents) you would like to send into the "books" folder, that's it.\
+All you have to do is to drag the books(or documents) you would like to send into the "books" folder, then execute *send.py*.\
 It's up to you whether to delete the books sent before or not, same books won't be sent twice.
 
 ### Getting Started
 
-To get the program working, you will have to fill up the data inside **info.json** which looks like this:
+To get the program working, you will have to fill up the data inside *info.json* which looks like this:
 ``` 
 {
     "gmailAddress": "yourMail@gmail.com",
