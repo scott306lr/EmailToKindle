@@ -11,7 +11,7 @@ Directly sends an email from Gmail to Kindle.
 
 ### Requirements
 
-You'll have to enable ["less secure apps access" option](https://myaccount.google.com/lesssecureapps)in gmail for this app to work.\
+You'll have to enable ["less secure apps access" option](https://myaccount.google.com/lesssecureapps) in gmail for this app to work.\
 I will find away to avoid this step in the future.
 
 ### Usage
