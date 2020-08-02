@@ -12,7 +12,7 @@ Directly sends an email from Gmail to Kindle.
 ### Requirements
 
 You'll have to enable [gmail's "less secure apps access"](https://myaccount.google.com/lesssecureapps) in order for this app to work.\
-I will find away to avoid this steo in the future.
+I will find away to avoid this step in the future.
 
 ### Usage
 
