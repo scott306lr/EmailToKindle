@@ -16,8 +16,8 @@ I will find away to avoid this step in the future.
 
 ### Usage
 
-Drag the books(or documents) you would like to send into the *books* folder, then execute _**send.py**_ or _**send.exe**_ .\
-It's up to you whether to delete the books sent before or not, same books won't be sent twice.
+Drag the books (or documents) you would like to send into the *books* folder, then execute _**send.py**_ or _**send.exe**_ .\
+It's up to you whether to delete the books sent before or not; same books won't be sent twice.
 
 ### Getting Started
 
