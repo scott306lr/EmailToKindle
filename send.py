@@ -6,25 +6,36 @@ from email.mime.application import MIMEApplication
 from email import encoders
 from pathlib import Path
 
-
-
-def sendBook(fromAddr,toAddr,book):
+def sendmail(gAddr,kAddr,recording):
+    #build email
     msg = MIMEMultipart()
-
-    msg['From'] = fromAddr
-    msg['To'] = toAddr
+    msg['From'] = gAddr
+    msg['To'] = kAddr
     msg['Subject'] = "New Book"
-
     body = "new book"
     text = MIMEText(body, 'plain','utf-8')
     msg.attach(text)
-    
-    attachment = open(Path.cwd() / 'books' / book, "rb")
-    att = MIMEApplication(attachment.read())
-    att.add_header('Content-Disposition','attachment',filename=book)
-    msg.attach(att)
-    attachment.close()
-    return msg
+
+    #attach books
+    for book in recording :
+        attachment = open(Path.cwd() / 'books' / book, "rb")
+        att = MIMEApplication(attachment.read())
+        att.add_header('Content-Disposition','attachment',filename=book)
+        msg.attach(att)
+        attachment.close()
+        #print(f"{book} Attached to mail.")
+
+    #send books to kindle
+    text = msg.as_string()
+    print("Sending mail to kindle...")
+    #server.sendmail(gAddr, kAddr, text)
+    print("All books sent!")
+
+    for sentBook in recording :
+        record[sentBook] = 'Sent'
+    record.close()
+
+
 
 # load information
 with open('info.json','r',encoding='utf-8') as jfile:
@@ -33,44 +44,46 @@ gAddr = info['gmailAddress']
 password = info['gmailPassword']
 kAddr = info['kindleAddress']
 
-
-#login to gmail server
-server = smtplib.SMTP('smtp.gmail.com', 587)
-server.ehlo_or_helo_if_needed()
-server.starttls()
-try:
-    server.login(gAddr, password)
-except:
-    print("Can't login! Perhaps wrong password?")
-    input()
-    sys.exit()
-
 #open sent record 
 record = shelve.open('books')
+print("Finding new books... Don't close while program is running!")
 
-for book in os.listdir('./books'):
-    bookName = book[:-4]
+new = False
+recording = []
+for book in os.listdir('./books'): 
     try :
-        if (record[bookName] == 'Sent'): continue  
+        if (record[book] == 'Sent'): continue  
 
-    except KeyError : #book not sent, send book to kindle
-        print("Finding new books... Don't close the program while running!")
-        print(f"Found new book: {bookName}")
-        print("Sending to Kindle...")
-        msg = sendBook(gAddr, kAddr, book)
+    #book not sent. Attach book to mail
+    except KeyError :  
+        new = True
+        print(f"Found new book: {book}")
+        recording.append(book)
         
-        text = msg.as_string()
-        server.sendmail(gAddr, kAddr, text)
-        print("Sent successfully!")
-        record[bookName] = 'Sent'
 
-print("All books sent!")
+if new == True :
+    #login to gmail server
+    print('\nLogging in to gmail server......', end='')
+    try:
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.ehlo_or_helo_if_needed()
+        server.starttls()
+        server.login(gAddr, password)
+        print('Logged in!')
+    except:
+        print("Can't login! Perhaps wrong password?")
+        input()
+        sys.exit()
 
-#save record, quit server
-record.close()
-server.quit()
+    #generate email and send to kindle
+    sendmail(gAddr,kAddr,recording)
+    #exit gmail 
+    server.quit()
+    
+else :
+    print("All books sent already!")
 
-print("Press Enter to close this window...")
+print("\n\nPress Enter to close this window...")
 input()
 
 

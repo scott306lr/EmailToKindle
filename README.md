@@ -1,11 +1,16 @@
 # EmailToKindle
 Directly sends an email from Gmail to Kindle.
 
+### Updates
+
+* 2020/8/5 Changed to sending one mail with multiple attachments instead of the other way around. 
+ * haven't checked if there is any limit for gmail or kindle with total attachment size or so.
+
 ### Features
 
 * Sends mails with an attachment of books inside the _**books**_ folder.
-* Remembers the names of the book sent in the past, books with the same name won't be sent again. 
-* For users who doesn't have python, I've added .exe version.
+* Remembers the names of the book sent in the past, those with the same name won't be sent again. 
+* For users who doesn't have python, I've added *.exe* version.
 
 ## How to use EmailToKindle
 
